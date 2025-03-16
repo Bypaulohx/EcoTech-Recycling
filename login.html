@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recicle.me - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container form-container">
+        <a href="index.html" class="back-btn" id="backBtn">←</a>
+        <h2>Bem-vindo de volta!<br>Faça seu login</h2>
+        <form id="loginForm" class="form">
+            <input type="email" placeholder="Digite seu email" required>
+            <div class="password-container">
+                <input type="password" id="passwordInput" placeholder="Digite sua senha" required>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            <a href="recuperacao.html" class="forgot-password">Esqueceu a senha?</a>
+            <button type="submit" class="green-btn">Entrar</button>
+        </form>
+        <p>Ou entre com</p>
+        <div class="social-login">
+            <a href="#" class="social-icon"><img src="/assets/Facebook (Button).png" alt="Facebook"></a>
+            <a href="#" class="social-icon"><img src="/assets/Google (Button).png" alt="Google"></a>
+            <a href="#" class="social-icon"><img src="/assets/Apple (Button).png" alt="Apple"></a>
+        </div>
+        <p>Ainda não tem uma conta? <a href="cadastro.html" class="register-link">Faça seu cadastro</a></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

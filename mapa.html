@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recicle.me - Mapa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra superior com logo e usuário -->
+    <header class="header">
+        <img src="/assets/Logo Header.png" alt="Logo" class="logo-icon">
+        <img src="/assets/User.jpg" alt="Usuário" class="user-photo">
+    </header>
+
+    <div class="container map-container">
+        <div class="map">
+            <img src="/assets/maps.png" alt="Mapa" class="map-img">
+        </div>
+        <div class="collection-points-container">
+            <div class="collection-header">
+                <h2>Encontre pontos de coleta e organizações perto de você</h2>
+                <button class="toggle-points-btn" onclick="togglePoints()">▲</button>
+            </div>
+            <input type="text" placeholder="Digite seu CEP" class="cep-input">
+            <div class="collection-points" id="collectionPoints">
+                <a href="detalhes-ponto.html" class="point">
+                    <h3>Associação dos Catadores de Material Reciclável - ASCAS</h3>
+                    <p>Av. Santos Dumont, 764 - Vila Santa Terezinha, São João del Rei - MG</p>
+                    <p>Aberto de seg. a sex. das 7h30 às 17h</p>
+                    <p>(32) 98467-8637</p>
+                </a>
+                <a href="detalhes-ponto.html" class="point">
+                    <h3>Coleta Municipal</h3>
+                    <p>Trajeto pelo bairro Vila Santa Terezinha</p>
+                    <p>Quinta-feira a partir das 18h</p>
+                </a>
+                <a href="detalhes-ponto.html" class="point hidden">
+                    <h3>Reciminhas Comércio de Metais</h3>
+                    <p>Av. Trinta e Um de Março, 689 - Colônia do Marçal, São João del Rei - MG</p>
+                    <p>Aberto de seg. a sex. das 8h às 18h</p>
+                    <p>(32) 3373-7642</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de navegação inferior -->
+    <nav class="navbar">
+        <a href="home.html" class="nav-icon">🏠<span>Home</span></a>
+        <a href="mapa.html" class="nav-icon active">📍<span>Mapa</span></a>
+        <a href="encontrar-catadores.html" class="nav-icon">🔍<span>Busca</span></a>
+        <a href="reciclagem.html" class="nav-icon">♻️<span>Reciclagem</span></a>
+        <a href="agendamento.html" class="nav-icon">📅<span>Agenda</span></a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

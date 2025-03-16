@@ -1,0 +1,783 @@
+/* Estilos globais aplicados a todas as páginas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Barra superior com logo e usuário */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Estilo do botão de voltar */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #00C853;
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-icon {
+    font-size: 24px;
+    text-decoration: none;
+    color: #666;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-icon span {
+    font-size: 12px;
+    color: #666;
+}
+
+.nav-icon.active {
+    color: #00C853;
+}
+
+.nav-icon.active span {
+    color: #00C853;
+}
+
+/* Estilos para home.html (Tela Inicial Após Login) */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.home-container h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.home-container p {
+    font-size: 16px;
+    color: #666;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.option-btn {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    display: block;
+}
+
+.option-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Estilos para mapa.html (Tela de Mapa) */
+.map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+}
+
+.map {
+    width: 100%;
+    height: 40vh;
+    background-color: #e0e0e0;
+}
+
+.map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collection-points-container {
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    margin-top: -20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.collection-header h2 {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.toggle-points-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #00C853;
+    cursor: pointer;
+}
+
+.toggle-points-btn.collapsed {
+    transform: rotate(180deg);
+}
+
+.cep-input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.collection-points {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.point:hover {
+    background-color: #f0f0f0;
+}
+
+.point::before {
+    content: '📍';
+    font-size: 20px;
+    color: #00C853;
+}
+
+.point h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.point p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+}
+
+.point.hidden {
+    display: none;
+}
+
+/* Estilos para encontrar-catadores.html (Tela de Encontrar Catadores) */
+.find-collectors-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+}
+
+.find-collectors-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.collectors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.collector-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.collector-item:hover {
+    background-color: #f0f0f0;
+}
+
+.collector-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.collector-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.collector-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+}
+
+/* Estilos para detalhes-catador.html (Tela de Detalhes do Catador) */
+.collector-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+}
+
+.collector-profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.collector-details-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.collector-details-container h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.collector-details-container p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.green-btn {
+    padding: 15px;
+    background-color: #00C853;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    transition: background-color 0.3s;
+}
+
+.green-btn:hover {
+    background-color: #00b848;
+}
+
+.call-btn {
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #00C853;
+    border-radius: 10px;
+    color: #00C853;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.call-btn:hover {
+    background-color: #00C853;
+    color: #fff;
+}
+
+/* Estilos para detalhes-ponto.html (Tela de Detalhes do Ponto de Coleta) */
+.details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.gallery-img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.details-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.details-container p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Estilos para agendamento.html (Tela de Agendamento) */
+.agendamento-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.agendamento-container h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.agendamento-container p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.calendar {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-header span {
+    font-size: 14px;
+    color: #333;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.calendar-grid div {
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-grid div:hover {
+    background-color: #e0e0e0;
+}
+
+.custom-select {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    background: #fff;
+    appearance: none;
+    cursor: pointer;
+}
+
+.custom-select:focus {
+    border-color: #00C853;
+    outline: none;
+}
+
+textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+textarea:focus {
+    border-color: #00C853;
+    outline: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00C853;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #00C853;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Estilos para confirmacao.html (Tela de Confirmação de Agendamento) */
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+}
+
+.confirmation-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.confirmation-container h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.collection-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.collection-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.collection-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.collection-card .instruction {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.cancel-btn {
+    padding: 15px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    transition: background-color 0.3s;
+    max-width: 200px;
+}
+
+.cancel-btn:hover {
+    background-color: #e60000;
+}
+
+.map-btn {
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #00C853;
+    border-radius: 10px;
+    color: #00C853;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.map-btn:hover {
+    background-color: #00C853;
+    color: #fff;
+}
+
+/* Estilos para cancelar-confirmacao.html (Tela de Confirmação de Cancelamento) */
+.cancellation-confirmation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+}
+
+.cancellation-confirmation-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cancellation-confirmation-container .collection-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.cancellation-confirmation-container .collection-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cancellation-confirmation-container .collection-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Estilos para cancelamento-sucesso.html (Tela de Sucesso de Cancelamento) */
+.success-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+}
+
+.success-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Estilos para reciclagem.html (Tela de Reciclagem) */
+.reciclagem-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.reciclagem-container h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.residuos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.residuos-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.residuos-item:hover {
+    transform: translateY(-5px);
+}
+
+.residuos-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.residuos-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.3;
+}

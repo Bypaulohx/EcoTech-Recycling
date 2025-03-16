@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recicle.me - Nova Senha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container form-container">
+        <a href="verificacao.html" class="back-btn" id="backBtn">←</a>
+        <h2>Pronto!<br>Crie uma nova senha</h2>
+        <form id="novaSenhaForm" class="form">
+            <div class="password-container">
+                <input type="password" id="newPasswordInput" placeholder="Digite uma nova senha" required>
+                <span class="toggle-password" onclick="togglePassword('newPassword')">👁️</span>
+            </div>
+            <div class="password-container">
+                <input type="password" id="confirmPasswordInput" placeholder="Confirme a nova senha" required>
+                <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</span>
+            </div>
+            <button type="submit" class="green-btn">Confirmar</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
