@@ -123,3 +123,18 @@ document.querySelectorAll('.calendar-grid div').forEach(day => {
         day.style.color = '#fff';
     });
 });
+
+inputname.addEventListener('focus', () => {
+    placeholder.style.bottom = '260px';
+    placeholder.style.backgroundColor = '#071124';
+    placeholder.style.color = '#00ffd5';
+    inputname.style.borderColor = '#ffff';
+});
+
+inputname.addEventListener('blur', () => {
+    if (inputname.value === '') {
+    placeholder.style.bottom = '';
+    placeholder.style.color = '#fff';
+    inputname.style.borderColor = '#ffffff56';
+    }
+});
