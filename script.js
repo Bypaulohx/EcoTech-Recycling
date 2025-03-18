@@ -1,6 +1,5 @@
-// Lógica geral para inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para desativar o botão de voltar na página index.html
+
     if (window.location.pathname.includes('index.html')) {
         const backBtn = document.getElementById('backBtn');
         if (backBtn) {
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Lógica para ajustar dinamicamente o botão "voltar" na página cadastro.html
     if (window.location.pathname.includes('cadastro.html')) {
         const backBtn = document.getElementById('backBtn');
         if (backBtn) {
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Lógica para mover o foco entre os campos de código em verificacao.html
     const codeInputs = document.querySelectorAll('.code-input');
     codeInputs.forEach((input, index) => {
         input.addEventListener('input', () => {
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Função para expandir/recolher a lista de pontos de coleta em mapa.html
 function togglePoints() {
     const points = document.querySelectorAll('.point.hidden');
     const toggleBtn = document.querySelector('.toggle-points-btn');
@@ -50,27 +46,24 @@ function togglePoints() {
     toggleBtn.classList.toggle('collapsed');
 }
 
-// Lógica para login.html (Tela de Login)
 document.getElementById('loginForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Login realizado com sucesso! (Simulação)');
-    window.location.href = 'home.html'; // Redireciona para a home após login
+    window.location.href = 'home.html';
 });
 
-// Função para alternar visibilidade da senha
 function togglePassword(inputId) {
     const passwordInput = document.getElementById(inputId === 'newPassword' ? 'newPasswordInput' : 'confirmPasswordInput');
     const toggleIcon = passwordInput.nextElementSibling;
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
-        toggleIcon.textContent = '🙈'; // Ícone de olho fechado
+        toggleIcon.textContent = '🙈';
     } else {
         passwordInput.type = 'password';
-        toggleIcon.textContent = '👁️'; // Ícone de olho aberto
+        toggleIcon.textContent = '👁️';
     }
 }
 
-// Lógica para cadastro.html (Tela de Cadastro - Primeira Etapa)
 document.getElementById('cadastroForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const passwordInput = document.getElementById('passwordInput');
@@ -80,24 +73,21 @@ document.getElementById('cadastroForm')?.addEventListener('submit', (e) => {
         return;
     }
     alert('Cadastro avançado com sucesso! (Simulação)');
-    window.location.href = 'cadastro2.html'; // Redireciona para a segunda etapa
+    window.location.href = 'cadastro2.html';
 });
 
-// Lógica para cadastro2.html (Tela de Cadastro - Segunda Etapa)
 document.getElementById('cadastroForm2')?.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Cadastro finalizado com sucesso! (Simulação)');
-    window.location.href = 'login.html'; // Redireciona para a tela de login após cadastro
+    window.location.href = 'login.html';
 });
 
-// Lógica para recuperacao.html (Tela de Recuperação)
 document.getElementById('recuperacaoForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Código enviado! (Simulação)');
-    window.location.href = 'verificacao.html'; // Redireciona para a tela de verificação
+    window.location.href = 'verificacao.html';
 });
 
-// Lógica para verificacao.html (Tela de Verificação)
 document.getElementById('verificacaoForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const codeInputs = document.querySelectorAll('.code-input');
@@ -110,7 +100,6 @@ document.getElementById('verificacaoForm')?.addEventListener('submit', (e) => {
     }
 });
 
-// Lógica para nova-senha.html (Tela de Nova Senha)
 document.getElementById('novaSenhaForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const newPasswordInput = document.getElementById('newPasswordInput');
@@ -127,7 +116,6 @@ document.getElementById('novaSenhaForm')?.addEventListener('submit', (e) => {
     window.location.href = 'sucesso.html';
 });
 
-// Lógica para simulação de seleção de data em agendamento.html (Tela de Agendamento)
 document.querySelectorAll('.calendar-grid div').forEach(day => {
     day.addEventListener('click', () => {
         document.querySelectorAll('.calendar-grid div').forEach(d => d.style.backgroundColor = '#fff');
