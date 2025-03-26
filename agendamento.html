@@ -3,65 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recicle.me - Agendamento</title>
+    <title>GreenBox - Agendamento</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra superior com logo e usuário -->
     <header class="header">
-        <img src="Logo Header.png" alt="Logo" class="logo-icon">
-        <img src="User.jpg" alt="Usuário" class="user-photo">
+        <img src="/assets/Logo Header.png" alt="Logo" class="logo-icon">
+        <img src="/assets/User.jpg" alt="Usuário" class="user-photo">
     </header>
 
     <div class="container agendamento-container">
         <a href="detalhes-ponto.html" class="back-btn">←</a>
-        <h2>Associação dos Catadores de Material Reciclável - ASCAS</h2>
-        <p>Quando será sua coleta?</p>
-        <div class="calendar">
-            <div class="calendar-header">
-                <span>Abril 2024</span>
-                <span class="calendar-nav">Dom Seg Ter Qua Qui Sex Sáb</span>
-            </div>
-            <div class="calendar-grid">
-                <div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div>
-                <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
-                <div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div>
-                <div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
-                <div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div></div><div></div>
-            </div>
+        <div class="boxed-section">
+            <h2>Associação dos Catadores de Material Reciclável - ASCAS</h2>
         </div>
-        <p>Quais materiais serão coletados?</p>
-        <select class="custom-select">
-            <option>*Essa empresa só realiza coletas de Metal e/ou Vidro</option>
-            <option>Metal</option>
-            <option>Vidro</option>
-        </select>
-        <p>Qual o peso aproximado da sua separação?</p>
-        <select class="custom-select">
-            <option>*Essa empresa só realiza coletas a partir de 10kg</option>
-            <option>10kg</option>
-            <option>20kg</option>
-            <option>30kg</option>
-            <option>40kg</option>
-            <option>50kg</option>
-        </select>
-        <p>Utilizar endereço e contatos do cadastro?</p>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-        </label>
-        <p>Tem alguma observação?</p>
-        <textarea placeholder="Comente sobre seus itens, horários para recebimento, etc.."></textarea>
+        <div class="boxed-section">
+            <p>Quando será sua coleta?</p>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <i class="bi bi-chevron-compact-left" onclick="previousMonth()"></i>
+                    <span id="monthYear">Março 2025</span>
+                    <i class="bi bi-chevron-compact-right" onclick="nextMonth()"></i>
+                </div>
+                <div class="calendar-nav">
+                    <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                </div>
+                <div class="calendar-grid" id="calendarGrid">
+                </div>
+            </div>
+            <p>Quais materiais serão coletados?</p>
+            <select class="custom-select">
+                <option>*Essa empresa só realiza coletas de Metal e/ou Vidro</option>
+                <option>Metal</option>
+                <option>Vidro</option>
+            </select>
+            <p>Qual o peso aproximado da sua separação?</p>
+            <select class="custom-select">
+                <option>*Essa empresa só realiza coletas a partir de 10kg</option>
+                <option>10kg</option>
+                <option>20kg</option>
+                <option>30kg</option>
+                <option>40kg</option>
+                <option>50kg</option>
+            </select>
+            <div class="switch-container">
+                <p>Utilizar endereço e contatos do cadastro?</p>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <p>Tem alguma observação?</p>
+            <textarea placeholder="Comente sobre seus itens, horários para recebimento, etc.."></textarea>
+        </div>
         <a href="confirmacao-agendamento.html" class="green-btn">Agendar coleta</a>
     </div>
 
-    <!-- Barra de navegação inferior -->
     <nav class="navbar">
-        <a href="home.html" class="nav-icon">🏠<span>Home</span></a>
-        <a href="mapa.html" class="nav-icon">📍<span>Mapa</span></a>
-        <a href="encontrar-catadores.html" class="nav-icon">🔍<span>Busca</span></a>
-        <a href="reciclagem.html" class="nav-icon">♻️<span>Reciclagem</span></a>
-        <a href="agendamento.html" class="nav-icon active">📅<span>Agenda</span></a>
+        <a href="home.html" class="nav-icon">
+            <i class="bi bi-house-door"></i><span>Home</span>
+        </a>
+        <a href="mapa.html" class="nav-icon">
+            <i class="bi bi-geo-alt"></i><span>Mapa</span>
+        </a>
+        <a href="encontrar-catadores.html" class="nav-icon">
+            <i class="bi bi-search"></i><span>Busca</span>
+        </a>
+        <a href="reciclagem.html" class="nav-icon">
+            <i class="bi bi-recycle"></i><span>Reciclagem</span>
+        </a>
+        <a href="agendamento.html" class="nav-icon active">
+            <i class="bi bi-calendar3"></i><span>Agenda</span>
+        </a>
     </nav>
 
     <script src="script.js"></script>

@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recicle.me - Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Barra superior com logo e usuário -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenBox - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/assets/Logo Header.png" type="image/png">
+  </head>
+  <body>
+
     <header class="header">
-        <img src="Logo Header.png" alt="Logo" class="logo-icon">
-        <img src="User.jpg" alt="Usuário" class="user-photo">
+      <img src="/assets/Logo Header.png" class="logo-icon" />
+      <img src="/assets/User.jpg" class="user-photo" />
     </header>
 
-    <div class="container home-container">
-        <h2>Olá, Maria!</h2>
-        <p>Primeira coleta municipal em 15/03 - 18h</p>
-        <div class="options">
-            <a href="mapa.html" class="option-btn">Ver pontos de coleta</a>
-            <a href="mapa.html" class="option-btn">Encontrar pontos de coleta perto de você</a>
-            <a href="agendamento.html" class="option-btn">Agende sua primeira coleta em domicílio</a>
+    <div class="home-container">
+
+        <h1>Olá, AinCafezinho</h1>
+
+        <div class="notification-card">
+            <p>A próxima coleta municipal será em <span class="date">01/04 - 15h</span></p>
+            <button class="btn">Ver local</button>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <a href="mapa.html" class="card-icon">
+                    <i class="bi bi-geo-alt"></i>
+                    <p>Veja pontos de coleta</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="encontrar-catadores.html" class="card-icon">
+                    <i class="bi bi-search"></i>
+                    <p>Encontrar catadores</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="reciclagem.html" class="card-icon">
+                    <i class="bi bi-recycle"></i>
+                    <p>O que posso reciclar</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="confirmacao-agendamento.html" class="card-icon">
+                    <i class="bi bi-calendar3"></i>
+                    <p>Coletas agendadas</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <h2>Agende sua primeira coleta em domicílio:</h2>
+            <a href="mapa.html" class="action-btn">Ir para o mapa</a>
         </div>
     </div>
 
-    <!-- Barra de navegação inferior -->
     <nav class="navbar">
-        <a href="home.html" class="nav-icon">🏠<span>Home</span></a>
-        <a href="mapa.html" class="nav-icon active">📍<span>Mapa</span></a>
-        <a href="encontrar-catadores.html" class="nav-icon">🔍<span>Busca</span></a>
-        <a href="reciclagem.html" class="nav-icon">♻️<span>Reciclagem</span></a>
-        <a href="agendamento.html" class="nav-icon">📅<span>Agenda</span></a>
+      <a href="home.html" class="nav-icon active">
+        <i class="bi bi-house-door"></i><span>Home</span>
+      </a>
+      <a href="mapa.html" class="nav-icon">
+        <i class="bi bi-geo-alt"></i><span>Mapa</span>
+      </a>
+      <a href="encontrar-catadores.html" class="nav-icon">
+        <i class="bi bi-search"></i><span>Busca</span>
+      </a>
+      <a href="reciclagem.html" class="nav-icon">
+        <i class="bi bi-recycle"></i><span>Reciclagem</span>
+      </a>
+      <a href="agendamento.html" class="nav-icon">
+        <i class="bi bi-calendar3"></i><span>Agenda</span>
+      </a>
     </nav>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

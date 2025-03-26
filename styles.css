@@ -86,7 +86,7 @@ body {
     left: 20px;
     font-size: 24px;
     text-decoration: none;
-    color: #333;
+    color: #0cca5b;
     font-weight: bold;
 }
 
@@ -184,7 +184,6 @@ body {
 .form-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 20px;
     max-width: 400px;
     width: 100%;
@@ -194,7 +193,7 @@ body {
     font-size: 28px;
     margin-bottom: 30px;
     color: #333;
-    text-align: center;
+    text-align: left;
     line-height: 1.2;
 }
 

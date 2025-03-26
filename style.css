@@ -1,4 +1,3 @@
-/* Estilos globais aplicados a todas as páginas */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +16,7 @@ body {
     margin: 0 auto;
 }
 
-/* Barra superior com logo e usuário */
+/* Barra logo e usuário */
 .header {
     position: fixed;
     top: 0;
@@ -45,7 +44,7 @@ body {
     object-fit: cover;
 }
 
-/* Estilo do botão de voltar */
+/* Botão de voltar */
 .back-btn {
     position: absolute;
     top: 20px;
@@ -60,7 +59,7 @@ body {
     color: #00C853;
 }
 
-/* Estilos para a barra de navegação */
+/* Barra de navegação */
 .navbar {
     position: fixed;
     bottom: 0;
@@ -77,7 +76,7 @@ body {
 .nav-icon {
     font-size: 24px;
     text-decoration: none;
-    color: #666;
+    color: #000000;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -90,7 +89,15 @@ body {
     color: #666;
 }
 
-.nav-icon.active {
+.nav-icon {
+    color: #00C853;
+}
+
+.nav-icon i {
+    color: #666;
+}
+
+.nav-icon.active i {
     color: #00C853;
 }
 
@@ -98,51 +105,127 @@ body {
     color: #00C853;
 }
 
-/* Estilos para home.html (Tela Inicial Após Login) */
+.nav-icon:hover i, .nav-icon:hover span {
+    color: #00C853;
+}
+
+/* (Tela home.html) */
 .home-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    min-height: 100vh;
     padding: 20px;
+    gap: 20px;
     flex-grow: 1;
 }
 
-.home-container h2 {
+h1 {
     font-size: 24px;
-    color: #333;
+    font-weight: bold;
+    text-align: left;
+    margin-right: 20px;
 }
 
-.home-container p {
+
+.notification-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.notification-card p {
     font-size: 16px;
-    color: #666;
+    margin-bottom: 10px;
 }
 
-.options {
+.notification-card .date {
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card-icon {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 300px;
-}
-
-.option-btn {
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
+    align-items: center;
     text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    display: block;
+    color: #555;
 }
 
-.option-btn:hover {
-    background-color: #e0e0e0;
+.card-icon i {
+    font-size: 20px;
+    color: #28a745;
+    margin-bottom: 10px;
 }
 
-/* Estilos para mapa.html (Tela de Mapa) */
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.action-section {
+    text-align: left;
+}
+
+.action-section h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    background-color: transparent;
+    text-decoration: none;
+    border: 2px solid #28a745;
+    color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* (Tela de Mapa) */
 .map-container {
     display: flex;
     flex-direction: column;
@@ -176,36 +259,54 @@ body {
 
 .collection-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.collection-header i {
+    font-size: 24px;
+    color: #00C853;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.collection-header i.collapsed {
+    transform: rotate(180deg);
 }
 
 .collection-header h2 {
     font-size: 20px;
     color: #333;
     line-height: 1.2;
+    text-align: left;
 }
 
-.toggle-points-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #00C853;
-    cursor: pointer;
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.toggle-points-btn.collapsed {
-    transform: rotate(180deg);
+.input-container i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #666;
+}
+
+input:focus {
+    border-color: #00C853;
+    outline: none;
 }
 
 .cep-input {
-    padding: 15px;
+    padding: 15px 15px 15px 40px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .collection-points {
@@ -226,10 +327,14 @@ body {
     background-color: #f0f0f0;
 }
 
-.point::before {
-    content: '📍';
+.point i {
     font-size: 20px;
     color: #00C853;
+    margin-top: 2px;
+}
+
+.point-content {
+    flex: 1;
 }
 
 .point h3 {
@@ -244,11 +349,23 @@ body {
     margin: 2px 0;
 }
 
-.point.hidden {
+.point p.opening-hours {
+    color: #00C853;
+}
+
+.point.collapsed .point-content p:not(:first-child) {
     display: none;
 }
 
-/* Estilos para encontrar-catadores.html (Tela de Encontrar Catadores) */
+.point.collapsed .point-content h3 {
+    font-size: 16px;
+}
+
+.point.expanded .point-content p {
+    display: block;
+}
+
+/* (Tela de Encontrar Catadores) */
 .find-collectors-container {
     display: flex;
     flex-direction: column;
@@ -305,7 +422,12 @@ body {
     margin: 2px 0;
 }
 
-/* Estilos para detalhes-catador.html (Tela de Detalhes do Catador) */
+input:focus {
+    border-color: #00C853;
+    outline: none;
+}
+
+/* (Tela de Detalhes do Catador) */
 .collector-details-container {
     display: flex;
     flex-direction: column;
@@ -390,7 +512,7 @@ body {
     color: #fff;
 }
 
-/* Estilos para detalhes-ponto.html (Tela de Detalhes do Ponto de Coleta) */
+/* (Tela de Detalhes do Ponto de Coleta) */
 .details-container {
     display: flex;
     flex-direction: column;
@@ -401,9 +523,22 @@ body {
     max-width: 400px;
 }
 
+.back-btn {
+    align-self: flex-start;
+    font-size: 24px;
+    color: #00C853;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn i {
+    font-size: 24px;
+}
+
 .gallery {
     display: flex;
-    gap: 10px;
+    gap: 50px;
     margin-bottom: 15px;
 }
 
@@ -415,18 +550,79 @@ body {
 }
 
 .details-container h2 {
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 10px;
+    margin: 2px 0;
+    text-align: left;
 }
 
 .details-container p {
     font-size: 14px;
     color: #666;
     margin: 5px 0;
+    text-align: left;
 }
 
-/* Estilos para agendamento.html (Tela de Agendamento) */
+.details-container p.address {
+    color: #00C853;
+}
+
+.details-container p.domicile-collection {
+    font-weight: bold; 
+}
+
+.details-container p.material-info {
+    font-size: 12px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 60px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.green-btn {
+    padding: 15px;
+    background-color: #00C853;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    max-width: 150px;
+    transition: background-color 0.3s;
+}
+
+.green-btn:hover {
+    background-color: #00b848;
+}
+
+.call-btn {
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #00C853;
+    border-radius: 10px;
+    color: #00C853;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    max-width: 150px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.call-btn:hover {
+    background-color: #00C853;
+    color: #fff;
+}
+
+/* (Tela de Agendamento) */
 .agendamento-container {
     display: flex;
     flex-direction: column;
@@ -441,53 +637,94 @@ body {
     margin-top: 10px;
 }
 
+.back-btn {
+    align-self: flex-start;
+    font-size: 24px;
+    color: #00C853;
+    text-decoration: none;
+}
+
+.boxed-section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .agendamento-container h2 {
     font-size: 18px;
-    color: #333;
+    color: #000000;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .agendamento-container p {
     font-size: 14px;
-    color: #666;
+    color: rgb(0, 0, 0)
     margin: 5px 0;
-}
-
-.calendar {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 10px;
+    font-weight: bold;
 }
 
 .calendar-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .calendar-header span {
     font-size: 14px;
     color: #333;
+    font-weight: bold;
+}
+
+.calendar-header i {
+    font-size: 16px;
+    color: #00C853;
+    cursor: pointer;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
-    margin-bottom: 10px;
 }
 
 .calendar-grid div {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
-    background-color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    color: #333;
 }
 
-.calendar-grid div:hover {
+.calendar-grid div.selectable {
+    cursor: pointer;
+}
+
+.calendar-grid div.selectable:hover {
     background-color: #e0e0e0;
+}
+
+.calendar-grid div.selected {
+    background-color: #00C853;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.calendar-grid div.disabled {
+    color: #ccc;
+    cursor: not-allowed;
 }
 
 .custom-select {
@@ -521,6 +758,12 @@ textarea:focus {
     outline: none;
 }
 
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -542,7 +785,6 @@ textarea:focus {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
     border-radius: 34px;
 }
@@ -555,7 +797,6 @@ textarea:focus {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
 }
@@ -569,12 +810,28 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
 
-/* Estilos para confirmacao.html (Tela de Confirmação de Agendamento) */
+.green-btn {
+    padding: 15px;
+    background-color: #00C853;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.green-btn:hover {
+    background-color: #00b848;
+}
+
+/* (Tela de Confirmação de Agendamento) */
 .confirmation-container {
     display: flex;
     flex-direction: column;
