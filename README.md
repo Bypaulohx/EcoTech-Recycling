@@ -25,7 +25,3 @@ O **GreenBox Recycling** é uma plataforma educativa focada na conscientização
     https://bypaulohx.github.io/APP.GreenBox/
     ```
 
-# Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
