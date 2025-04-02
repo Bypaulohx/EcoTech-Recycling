@@ -195,12 +195,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('agendamento.html')) {
     const today = new Date();
     const currentDay = today.getDate();
-    const currentMonthActual = today.getMonth(); // O mês atual
-    const currentYearActual = today.getFullYear(); // O ano atual
-
-    // Definir o mês e ano atuais para exibição
-    let currentMonth = currentMonthActual;
+    let currentMonthActual = today.getMonth();
+    const currentYearActual = today.getFullYear();
+    let currentMonth = currentMonthActual + 1; 
     let currentYear = currentYearActual;
+
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
 
     window.generateCalendar = function (month, year) {
         const calendarGrid = document.getElementById('calendarGrid');
@@ -209,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarGrid.innerHTML = '';
 
         const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-        // Exibir o mês e ano no formato "Mês Ano"
         document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
 
         const firstDay = new Date(year, month, 1).getDay();
@@ -268,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.generateCalendar(currentMonth, currentYear);
     };
 
-    // Gerar o calendário para o mês e ano atuais
     window.generateCalendar(currentMonth, currentYear);
 }
 
