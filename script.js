@@ -193,78 +193,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // (Tela de Agendamento)
     if (window.location.pathname.includes('agendamento.html')) {
-        let currentMonth = 2;
-        let currentYear = 2025;
-        const today = new Date();
-        const currentDay = today.getDate();
-        const currentMonthActual = today.getMonth();
-        const currentYearActual = today.getFullYear();
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonthActual = today.getMonth(); // O mês atual
+    const currentYearActual = today.getFullYear(); // O ano atual
 
-        window.generateCalendar = function (month, year) {
-            const calendarGrid = document.getElementById('calendarGrid');
-            if (!calendarGrid) return;
+    // Definir o mês e ano atuais para exibição
+    let currentMonth = currentMonthActual;
+    let currentYear = currentYearActual;
 
-            calendarGrid.innerHTML = '';
+    window.generateCalendar = function (month, year) {
+        const calendarGrid = document.getElementById('calendarGrid');
+        if (!calendarGrid) return;
 
-            const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-            document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
+        calendarGrid.innerHTML = '';
 
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        // Exibir o mês e ano no formato "Mês Ano"
+        document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
 
-            for (let i = 0; i < firstDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'disabled';
-                calendarGrid.appendChild(emptyDay);
-            }
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('div');
-                const isPastDay = (year < currentYearActual) || (year === currentYearActual && month < currentMonthActual) || (year === currentYearActual && month === currentMonthActual && day < currentDay);
+        for (let i = 0; i < firstDay; i++) {
+            const emptyDay = document.createElement('div');
+            emptyDay.className = 'disabled';
+            calendarGrid.appendChild(emptyDay);
+        }
 
-                if (isPastDay) {
-                    dayElement.className = 'disabled';
-                } else {
-                    dayElement.className = 'selectable';
-                    dayElement.addEventListener('click', () => {
-                        document.querySelectorAll('.calendar-grid div').forEach(d => {
-                            d.classList.remove('selected');
-                            if (d.classList.contains('selectable')) {
-                                d.style.backgroundColor = 'transparent';
-                                d.style.color = '#333';
-                            }
-                        });
-                        dayElement.classList.add('selected');
-                        dayElement.style.backgroundColor = '#e0e0e0';
-                        dayElement.style.color = '#fff';
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElement = document.createElement('div');
+            const isPastDay = (year < currentYearActual) || 
+                              (year === currentYearActual && month < currentMonthActual) || 
+                              (year === currentYearActual && month === currentMonthActual && day < currentDay);
+
+            if (isPastDay) {
+                dayElement.className = 'disabled';
+            } else {
+                dayElement.className = 'selectable';
+                dayElement.addEventListener('click', () => {
+                    document.querySelectorAll('.calendar-grid div').forEach(d => {
+                        d.classList.remove('selected');
+                        if (d.classList.contains('selectable')) {
+                            d.style.backgroundColor = 'transparent';
+                            d.style.color = '#333';
+                        }
                     });
-                }
-
-                dayElement.textContent = day;
-                calendarGrid.appendChild(dayElement);
+                    dayElement.classList.add('selected');
+                    dayElement.style.backgroundColor = '#e0e0e0';
+                    dayElement.style.color = '#fff';
+                });
             }
-        };
 
-        window.previousMonth = function () {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            window.generateCalendar(currentMonth, currentYear);
-        };
+            dayElement.textContent = day;
+            calendarGrid.appendChild(dayElement);
+        }
+    };
 
-        window.nextMonth = function () {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            window.generateCalendar(currentMonth, currentYear);
-        };
-
+    window.previousMonth = function () {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
         window.generateCalendar(currentMonth, currentYear);
-    }
+    };
+
+    window.nextMonth = function () {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        window.generateCalendar(currentMonth, currentYear);
+    };
+
+    // Gerar o calendário para o mês e ano atuais
+    window.generateCalendar(currentMonth, currentYear);
+}
 
     // Função para expandir/recolher a lista de pontos de coleta em mapa.html
     if (window.location.pathname.includes('mapa.html')) {
