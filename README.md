@@ -22,7 +22,7 @@ O **GreenBox Recycling** é uma plataforma educativa focada na conscientização
 1. Clique no link abaixo:
 
     ```
-    git clone https://github.com/seu-usuario/reciclagem-app.git
+    https://bypaulohx.github.io/APP.GreenBox/
     ```
 
 # Licença
