@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -663,7 +663,7 @@ input:focus {
 
 .agendamento-container p {
     font-size: 14px;
-    color: rgb(0, 0, 0)
+    color: rgb(0, 0, 0);
     margin: 5px 0;
     font-weight: bold;
 }
@@ -923,7 +923,7 @@ input:checked + .slider:before {
     color: #fff;
 }
 
-/* Estilos para cancelar-confirmacao.html (Tela de Confirmação de Cancelamento) */
+/* (Tela de Confirmação de Cancelamento) */
 .cancellation-confirmation-container {
     display: flex;
     flex-direction: column;
@@ -963,7 +963,7 @@ input:checked + .slider:before {
     margin: 5px 0;
 }
 
-/* Estilos para cancelamento-sucesso.html (Tela de Sucesso de Cancelamento) */
+/* (Tela de Sucesso de Cancelamento) */
 .success-container {
     display: flex;
     flex-direction: column;
@@ -982,7 +982,7 @@ input:checked + .slider:before {
     text-align: center;
 }
 
-/* Estilos para reciclagem.html (Tela de Reciclagem) */
+/* (Tela de Reciclagem) */
 .reciclagem-container {
     display: flex;
     flex-direction: column;
@@ -1037,4 +1037,307 @@ input:checked + .slider:before {
     font-size: 14px;
     color: #666;
     line-height: 1.3;
+}
+
+/* (Tela Notificações) */
+.notifications-container {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .back-btn {
+    align-self: flex-start;
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .title-row i {
+    font-size: 30px;
+    color: #000000;
+  }
+  
+  .notifications-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .notifications-container p {
+    font-size: 15px;
+    color: #444444;
+    font-weight: bold;
+  }
+  
+  .notification-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .notification-item i {
+    font-size: 30px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .notification-item i:hover {
+    color: #28a745;
+  }
+
+/* (Tela Perfil) */
+.content-container {
+    padding: 0 20px; 
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px; 
+    flex-grow: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #666;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* (Tela Meus Dados) */
+.content-container {
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+}
+
+.data-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.data-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.data-value {
+    font-size: 14px;
+    color: #333;
+}
+
+.edit-icon {
+    font-size: 18px;
+    color: #00C853;
+    cursor: pointer;
+}
+
+.data-location {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.data-row .data-item {
+    flex: 1;
+    padding: 15px 0;
+}
+
+/* (Tela Ajuda) */
+.content-container {
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px; 
+    margin-bottom: 20px;
+}
+
+.faq-section {
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.faq-question i {
+    font-size: 16px;
+    color: #00C853;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #666;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.faq-item input[type="checkbox"] {
+    display: none;
+}
+
+.faq-item input[type="checkbox"]:checked ~ .faq-answer {
+    display: block;
+}
+
+.faq-item input[type="checkbox"]:checked ~ .faq-question i {
+    transform: rotate(180deg);
+}
+
+.instructions-section {
+    margin-bottom: 30px;
+}
+
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.instruction-item i {
+    font-size: 18px;
+    color: #00C853;
+    margin-right: 10px;
+}
+
+.contact-section {
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.contact-item i {
+    font-size: 18px;
+    color: #00C853;
+    margin-right: 10px;
+}
+
+.links-section {
+    margin-bottom: 30px;
+}
+
+.links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-item {
+    padding: 10px 0;
+}
+
+.link-item a {
+    font-size: 14px;
+    color: #00C853;
+    text-decoration: none;
+}
+
+.link-item a:hover {
+    text-decoration: underline;
 }

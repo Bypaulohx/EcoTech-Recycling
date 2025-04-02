@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif; 
 }
 
 body {
@@ -11,72 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
-
-/* (Barra com logo e usuário) */
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.user-photo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* (Barra de navegação) */
-.navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.nav-icon {
-    font-size: 24px;
-    text-decoration: none;
-    color: #666;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-.nav-icon span {
-    font-size: 12px;
-    color: #666;
-}
-
-.nav-icon.active {
-    color: #00C853;
-}
-
-.nav-icon.active span {
-    color: #00C853;
 }
 
 /* (Botão de voltar) */
@@ -187,47 +121,52 @@ body {
     padding: 20px;
     max-width: 400px;
     width: 100%;
-}
-
-.form-container h2 {
+    margin: 0 auto;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  
+  .form-container h2 {
     font-size: 28px;
     margin-bottom: 30px;
     color: #333;
     text-align: left;
     line-height: 1.2;
-}
-
-.form {
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 20px;
-}
-
-.form input {
+  }
+  
+  .form input {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
-}
-
-.form input:focus {
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form input:focus {
     border-color: #00C853;
-}
-
-.password-container {
+    box-shadow: 0 2px 8px rgba(0, 200, 83, 0.2);
+  }
+  
+  .password-container {
     position: relative;
     width: 100%;
-}
-
-#passwordInput {
+  }
+  
+  #passwordInput {
     width: 100%;
-    padding-right: 40px; /* Espaço para o ícone de visibilidade */
-}
-
-.toggle-password {
+    padding-right: 40px;
+  }
+  
+  .toggle-password {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -235,13 +174,13 @@ body {
     cursor: pointer;
     font-size: 18px;
     color: #666;
-}
-
-.toggle-password:hover {
+  }
+  
+  .toggle-password:hover {
     color: #00C853;
-}
-
-.form button {
+  }
+  
+  .form button {
     margin-top: 10px;
     padding: 15px;
     background-color: #00C853;
@@ -252,62 +191,87 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.form button:hover {
+  }
+  
+  .form button:hover {
     background-color: #00b848;
-}
-
-.forgot-password {
+  }
+  
+  .forgot-password {
     align-self: flex-end;
     color: #00C853;
     text-decoration: none;
     font-size: 14px;
     margin-bottom: 10px;
-}
-
-.social-login {
+  }
+  
+  .divider {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    align-items: center;
     margin: 20px 0;
-}
-
-.social-icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s;
-}
-
-.social-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.social-icon:hover {
-    background-color: #e0e0e0;
-}
-
-p {
+    gap: 10px;
+  }
+  
+  .divider p {
     font-size: 14px;
     color: #666;
     text-align: center;
-}
-
-.register-link {
+    margin: 0;
+  }
+  
+  .divider .line {
+    flex: 1;
+    border: 0;
+    border-top: 1px solid #ccc;
+  }
+  
+.social-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .social-rectangle {
+    width: 60px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  .social-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+  
+  .register-link {
     color: #00C853;
     text-decoration: none;
     font-weight: bold;
-}
-
-.register-link:hover {
+  }
+  
+  .register-link:hover {
     text-decoration: underline;
-}
+  }
 
 /* (Tela Cadastro) */
 .login-link {
@@ -334,22 +298,118 @@ p {
 }
 
 .checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #666;
-    margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #00C853;
+  border-color: #00C853;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.checkbox-label:hover .custom-checkbox {
+  border-color: #00C853;
 }
 
 /* (Tela Recuperação) */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.main-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: normal;
+  color: #666;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
 .form {
-    gap: 40px; /* Ajustado para maior espaçamento entre o input e o botão */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+}
+
+.form input {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form input:focus {
+  border-color: #00C853;
+  box-shadow: 0 2px 8px rgba(0, 200, 83, 0.2);
+}
+
+.login-prompt {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link {
+  color: #00C853;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
 }
 
 /* (Tela Verificação) */
@@ -362,10 +422,10 @@ p {
 
 .code-input {
     width: 50px;
-    height: 60px; /* Ajustado para ser mais alto, conforme a imagem */
+    height: 60px;
     text-align: center;
-    font-size: 24px; /* Aumentado para maior legibilidade */
-    border: 2px solid #ccc; /* Borda mais grossa */
+    font-size: 24px;
+    border: 2px solid #ccc;
     border-radius: 10px;
     outline: none;
     transition: border-color 0.3s;
@@ -373,7 +433,7 @@ p {
 
 .code-input:focus {
     border-color: #00C853;
-    box-shadow: 0 0 5px rgba(0, 200, 83, 0.5); /* Sombra ao focar */
+    box-shadow: 0 0 5px rgba(0, 200, 83, 0.5);
 }
 
 /* (Tela Nova Senha) */
@@ -386,12 +446,61 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* Ajustado para maior espaçamento, conforme a imagem */
+    gap: 30px;
 }
 
 .success-icon {
-    width: 80px; /* Reduzido para corresponder ao tamanho da imagem */
-    height: 80px;
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+#outer-circle {
+  stroke-dasharray: 263;
+  stroke-dashoffset: 263;
+  animation: draw-circle 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#inner-circle {
+  opacity: 0;
+  animation: fill-circle 0.6s ease-in-out 0.6s forwards;
+}
+
+#checkmark {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: draw-checkmark 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-circle {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw-checkmark {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .success-container h2 {

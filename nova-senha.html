@@ -5,23 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenBox - Nova Senha</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="Logo Header.png" type="image/png">
 </head>
 <body>
     <div class="container form-container">
-        <a href="verificacao.html" class="back-btn" id="backBtn">←</a>
+        <a href="index.html" class="back-btn" id="backBtn">
+          <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
         <h2>Pronto!<br>Crie uma nova senha</h2>
-        <form id="novaSenhaForm" class="form">
-            <div class="password-container">
-                <input type="password" id="newPasswordInput" placeholder="Digite uma nova senha" required>
-                <span class="toggle-password" onclick="togglePassword('newPassword')">👁️</span>
-            </div>
-            <div class="password-container">
-                <input type="password" id="confirmPasswordInput" placeholder="Confirme a nova senha" required>
-                <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</span>
-            </div>
-            <button type="submit" class="green-btn">Confirmar</button>
+        <form id="loginForm" class="form">
+            <input type="password" id="passwordInput" placeholder="Digite uma nova senha" required>
+            <span class="toggle-password" id="togglePassword" onclick="togglePassword()">
+              <i class="bi bi-eye-fill"></i>
+            </span>
+          <div class="password-container">
+            <input type="password" id="passwordInput" placeholder="Confirme nova senha" required>
+            <span class="toggle-password" id="togglePassword" onclick="togglePassword()">
+              <i class="bi bi-eye-fill"></i>
+            </span>
+          </div>
+          <button type="submit" class="confirmar-btn">Confirmar</button>
         </form>
-    </div>
+      </div>
     <script src="script.js"></script>
 </body>
 </html>

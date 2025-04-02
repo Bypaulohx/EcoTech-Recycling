@@ -1,0 +1,727 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Desativar o botão de voltar na página index.html
+    if (window.location.pathname.includes('index.html')) {
+        const backBtn = document.getElementById('backBtn');
+        if (backBtn) {
+            backBtn.style.pointerEvents = 'none';
+            backBtn.style.color = '#ccc';
+        }
+    }
+
+    // Botão "voltar" na página cadastro.html
+    if (window.location.pathname.includes('cadastro.html')) {
+        const backBtn = document.getElementById('backBtn');
+        if (backBtn) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const from = urlParams.get('from');
+            if (from === 'index') {
+                backBtn.href = 'index.html';
+            }
+        }
+    }
+
+    // Lógica em verificacao.html
+    const codeInputs = document.querySelectorAll('.code-input');
+    codeInputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === 1 && index < codeInputs.length - 1) {
+                codeInputs[index + 1].focus();
+            }
+        });
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                codeInputs[index - 1].focus();
+            }
+        });
+    });
+});
+
+// Função para expandir/recolher a lista de pontos de coleta em mapa.html
+function togglePoints() {
+    const points = document.querySelectorAll('.point');
+            const icon = document.querySelector('.collection-header i');
+            const container = document.querySelector('.collection-points-container');
+
+            points.forEach(point => {
+                if (point.classList.contains('collapsed')) {
+                    point.classList.remove('collapsed');
+                    point.classList.add('expanded');
+                    const h3 = point.querySelector('h3');
+                    if (h3.textContent === 'Associação de Catadores (ASCAS)') {
+                        h3.textContent = 'Associação dos Catadores de Material Reciclável - ASCAS';
+                    }
+                    const firstP = point.querySelector('p');
+                    if (firstP.textContent === 'Prefeitura Municipal') {
+                        firstP.textContent = 'Prefeitura Municipal, Palmas - TO';
+                    }
+                    if (h3.textContent === 'Reciminhas Comércio de Metais') {
+                        firstP.textContent = 'Av. JK, 689 - Centro, Palmas - TO';
+                    }
+                } else {
+                    point.classList.remove('expanded');
+                    point.classList.add('collapsed');
+                    const h3 = point.querySelector('h3');
+                    if (h3.textContent === 'Associação dos Catadores de Material Reciclável - ASCAS') {
+                        h3.textContent = 'Associação de Catadores (ASCAS)';
+                    }
+                    const firstP = point.querySelector('p');
+                    if (firstP.textContent === 'Prefeitura Municipal, Palmas - TO') {
+                        firstP.textContent = 'Prefeitura Municipal';
+                    }
+                    if (firstP.textContent === 'Av. JK, 689 - Centro, Palmas - TO') {
+                        firstP.textContent = 'Av. JK, 689';
+                    }
+                }
+            });
+
+            icon.classList.toggle('collapsed');
+
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+// (Tela de Login)
+document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Login realizado com sucesso! (Simulação)');
+    window.location.href = 'home.html'; // Redireciona para a home após login
+});
+
+// Função para alternar a visibilidade da senha
+function togglePassword() {
+    const passwordInput = document.getElementById("passwordInput");
+    const toggleIcon = document.getElementById("togglePassword").querySelector("i");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleIcon.classList.remove("bi-eye-fill");
+      toggleIcon.classList.add("bi-eye-slash-fill");
+    } else {
+      passwordInput.type = "password";
+      toggleIcon.classList.remove("bi-eye-slash-fill");
+      toggleIcon.classList.add("bi-eye-fill");
+    }
+  }
+
+  // Função para controlar a visibilidade do botão de voltar
+  const backBtn = document.getElementById("backBtn");
+  const emailInput = document.getElementById("emailInput");
+  const passwordInput = document.getElementById("passwordInput");
+
+  function toggleBackButton() {
+    const emailFocused = document.activeElement === emailInput;
+    const passwordFocused = document.activeElement === passwordInput;
+    if (emailFocused || passwordFocused) {
+      backBtn.style.display = "none";
+    } else {
+      backBtn.style.display = "block";
+    }
+  }
+
+  emailInput.addEventListener("focus", toggleBackButton);
+  emailInput.addEventListener("blur", toggleBackButton);
+  passwordInput.addEventListener("focus", toggleBackButton);
+  passwordInput.addEventListener("blur", toggleBackButton);
+
+// (Tela de Cadastro - Primeira Etapa)
+document.getElementById('cadastroForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const passwordInput = document.getElementById('passwordInput');
+    const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        alert('As senhas não coincidem!');
+        return;
+    }
+    alert('Cadastro avançado com sucesso! (Simulação)');
+    window.location.href = 'cadastro2.html';
+});
+
+// (Tela de Cadastro - Segunda Etapa)
+document.getElementById('cadastroForm2')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Cadastro finalizado com sucesso! (Simulação)');
+    window.location.href = 'login.html';
+});
+
+// Função para formatar o telefone no padrão (00) 00000-0000
+      document.getElementById('telefone').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+        if (value.length > 11) value = value.slice(0, 11); // Limita a 11 dígitos
+
+        if (value.length > 6) {
+          value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+        } else if (value.length > 2) {
+          value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+        } else if (value.length > 0) {
+          value = `(${value}`;
+        }
+
+        e.target.value = value;
+      });
+
+      // Função para formatar o CEP no padrão 00000-000
+      document.getElementById('cep').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+        if (value.length > 8) value = value.slice(0, 8); // Limita a 8 dígitos
+
+        if (value.length > 5) {
+          value = `${value.slice(0, 5)}-${value.slice(5, 8)}`;
+        }
+
+        e.target.value = value;
+      });
+
+// (Tela de Recuperação)
+document.getElementById('recuperacaoForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Código enviado! (Simulação)');
+    window.location.href = 'verificacao.html';
+});
+
+// (Tela de Verificação)
+document.getElementById('verificacaoForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const codeInputs = document.querySelectorAll('.code-input');
+    const code = Array.from(codeInputs).map(input => input.value).join('');
+    if (code.length === 4) {
+        alert('Código verificado com sucesso! (Simulação)');
+        window.location.href = 'nova-senha.html';
+    } else {
+        alert('Por favor, insira um código de 4 dígitos!');
+    }
+});
+
+// (Tela de Nova Senha)
+document.getElementById('novaSenhaForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newPasswordInput = document.getElementById('newPasswordInput');
+    const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    if (newPasswordInput.value !== confirmPasswordInput.value) {
+        alert('As senhas não coincidem!');
+        return;
+    }
+    if (newPasswordInput.value.length < 6) {
+        alert('A senha deve ter pelo menos 6 caracteres!');
+        return;
+    }
+    alert('Senha alterada com sucesso! (Simulação)');
+    window.location.href = 'sucesso.html';
+});
+
+// (Tela de Agendamento)
+let currentMonth = 2;
+        let currentYear = 2025;
+        const today = new Date();
+        const currentDay = today.getDate();
+        const currentMonthActual = today.getMonth();
+        const currentYearActual = today.getFullYear();
+
+        function generateCalendar(month, year) {
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'disabled';
+                calendarGrid.appendChild(emptyDay);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                const isPastDay = (year < currentYearActual) || (year === currentYearActual && month < currentMonthActual) || (year === currentYearActual && month === currentMonthActual && day < currentDay);
+
+                if (isPastDay) {
+                    dayElement.className = 'disabled';
+                } else {
+                    dayElement.className = 'selectable';
+                    dayElement.addEventListener('click', () => {
+                        document.querySelectorAll('.calendar-grid div').forEach(d => {
+                            d.classList.remove('selected');
+                            if (d.classList.contains('selectable')) {
+                                d.style.backgroundColor = 'transparent';
+                                d.style.color = '#333';
+                            }
+                        });
+                        dayElement.classList.add('selected');
+                        dayElement.style.backgroundColor = '#e0e0e0';
+                        dayElement.style.color = '#fff';
+                    });
+                }
+
+                dayElement.textContent = day;
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+
+        function previousMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        generateCalendar(currentMonth, currentYear);
+
+
+
+        /*styles.css*/ 
+        
+        /*(
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+          }
+          
+          body {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+          }
+          
+          /* Estilos Gerais */
+          .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+          }
+          
+          .form-container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            min-height: 100vh;
+            justify-content: center;
+          }
+          
+          .form-container h2,
+          .success-container h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: left;
+            line-height: 1.2;
+          }
+          
+          .form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
+          }
+          
+          .form input {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+          
+          .form input:focus {
+            border-color: #00C853;
+            box-shadow: 0 2px 8px rgba(0, 200, 83, 0.2);
+          }
+          
+          /* Botão de Voltar */
+          .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            text-decoration: none;
+            color: #0cca5b;
+            font-weight: bold;
+          }
+          
+          .back-btn:hover {
+            color: #00C853;
+          }
+          
+          /* Links */
+          .link {
+            color: #00C853;
+            text-decoration: none;
+            font-weight: bold;
+          }
+          
+          .link:hover {
+            text-decoration: underline;
+          }
+          
+          /* Botões */
+          .btn {
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          }
+          
+          .enter-btn {
+            background-color: #38C958;
+          }
+          
+          .enter-btn:hover {
+            background-color: #00b848;
+          }
+          
+          .register-btn {
+            background-color: transparent;
+            border: 2px solid #00C853;
+            color: #00C853;
+          }
+          
+          .register-btn:hover {
+            background-color: #00c8531a;
+          }
+          
+          .green-btn,
+          .form button {
+            background-color: #00C853;
+          }
+          
+          .green-btn:hover,
+          .form button:hover {
+            background-color: #00b848;
+          }
+          
+          /* Tela Inicial de Boas-vindas */
+          .illustration {
+            width: 100%;
+            height: 40vh;
+            margin-bottom: 20px;
+          }
+          
+          .illustration-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+          
+          .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+          }
+          
+          .logo-icon {
+            width: 278px;
+            height: 78px;
+            margin-bottom: 50px;
+          }
+          
+          .logo h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+          }
+          
+          .buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+          }
+          
+          /* Tela de Login */
+          .password-container {
+            position: relative;
+            width: 100%;
+          }
+          
+          #passwordInput {
+            width: 100%;
+            padding-right: 40px;
+          }
+          
+          .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+          }
+          
+          .toggle-password:hover {
+            color: #00C853;
+          }
+          
+          .forgot-password {
+            align-self: flex-end;
+            font-size: 14px;
+            margin-bottom: 10px;
+          }
+          
+          .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 10px;
+          }
+          
+          .divider p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+          }
+          
+          .divider .line {
+            flex: 1;
+            border: 0;
+            border-top: 1px solid #ccc;
+          }
+          
+          .social-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+          }
+          
+          .social-rectangle {
+            width: 60px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+          }
+          
+          .social-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+          }
+          
+          p {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+          }
+          
+          /* Tela Cadastro2 */
+          .address-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+          }
+          
+          .address-row input {
+            flex: none;
+            width: 175px;
+          }
+          
+          .checkbox-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 14px;
+            color: #666;
+            margin: 15px 0;
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+          }
+          
+          .checkbox-label input[type="checkbox"] {
+            display: none;
+          }
+          
+          .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            position: relative;
+            transition: background-color 0.3s, border-color 0.3s;
+          }
+          
+          .checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: #00C853;
+            border-color: #00C853;
+          }
+          
+          .checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 6px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+          
+          .checkbox-label:hover .custom-checkbox {
+            border-color: #00C853;
+          }
+          
+          /* Tela Recuperação */
+          .main-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+            margin-bottom: 5px;
+          }
+          
+          .subtitle {
+            font-size: 16px;
+            font-weight: normal;
+            color: #666;
+            text-align: left;
+            margin-bottom: 30px;
+          }
+          
+          .form.recuperacao {
+            gap: 40px; /* Específico para a tela de recuperação */
+          }
+          
+          .login-prompt {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+          }
+          
+          /* Tela Verificação */
+          .code-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+          
+          .code-input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 24px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+          }
+          
+          .code-input:focus {
+            border-color: #00C853;
+            box-shadow: 0 0 5px rgba(0, 200, 83, 0.5);
+          }
+          
+          /* Tela Sucesso */
+          .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+          }
+          
+          .success-icon {
+            width: 100px;
+            height: 100px;
+            transform: scale(0);
+            animation: pop-in 0.5s ease-out forwards;
+          }
+          
+          #outer-circle {
+            stroke-dasharray: 263;
+            stroke-dashoffset: 263;
+            animation: draw-circle 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+          
+          #inner-circle {
+            opacity: 0;
+            animation: fill-circle 0.6s ease-in-out 0.6s forwards;
+          }
+          
+          #checkmark {
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: draw-checkmark 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+          }
+          
+          @keyframes pop-in {
+            0% {
+              transform: scale(0);
+            }
+            70% {
+              transform: scale(1.1);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          
+          @keyframes draw-circle {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+          
+          @keyframes fill-circle {
+            to {
+              opacity: 1;
+            }
+          }
+          
+          @keyframes draw-checkmark {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+          
+          .success-container h2 {
+            margin-bottom: 10px;
+            text-align: center;
+          } */
