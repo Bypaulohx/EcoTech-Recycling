@@ -22,6 +22,6 @@ O **GreenBox Recycling** é uma plataforma educativa focada na conscientização
 1. Clique no link abaixo:
 
     ```
-    https://bypaulohx.github.io/APP.GreenBox/
+    https://bypaulohx.github.io/EcoTech-Recycling/
     ```
 
