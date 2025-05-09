@@ -1,4 +1,4 @@
-# GreenBox Recycling
+# EcoTech - Recycling
 
 # Descrição
 
