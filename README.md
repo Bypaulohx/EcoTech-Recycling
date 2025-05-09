@@ -2,7 +2,7 @@
 
 # Descrição
 
-O **GreenBox Recycling** é uma plataforma educativa focada na conscientização e reciclagem de resíduos, com especial atenção aos resíduos eletrônicos. O aplicativo fornece informações sobre como reciclar diferentes tipos de lixo, como plásticos, papel, orgânicos e, principalmente, dispositivos eletrônicos, como celulares, baterias e computadores.
+O **EcoTech - Recycling** é uma plataforma educativa focada na conscientização e reciclagem de resíduos, com especial atenção aos resíduos eletrônicos. O aplicativo fornece informações sobre como reciclar diferentes tipos de lixo, como plásticos, papel, orgânicos e, principalmente, dispositivos eletrônicos, como celulares, baterias e computadores.
 
 # Tecnologias Utilizadas
 
