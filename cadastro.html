@@ -1,41 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenBox - Cadastro</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" href="Logo Header.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .form-container { display: none; }
+    .form-container.active { display: block; }
+    .tab-container { margin: 10px 0; }
+    .option-btn.active { background-color: #4caf50; color: white; }
+  </style>
 </head>
 <body>
-    <div class="container form-container">
-        <a href="index.html" class="back-btn" id="backBtn">
-            <i class="bi bi-arrow-left-circle-fill"></i>
-          </a>
-        <h2>Olá!<br>Vamos começar?</h2>
-        <form id="cadastroForm" class="form">
-            <input type="text" placeholder="Nome" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" id="passwordInput" placeholder="Senha" required>
-            <input type="password" id="confirmPasswordInput" placeholder="Confirme a senha" required>
-            <button type="submit" class="avancar-btn">Avançar</button>
-        </form>
-        <div class="divider">
-            <hr class="line" />
-            <p>Ou entre com</p>
-            <hr class="line" />
-          </div>
-        <div class="social-login">
-            <a href="#" class="social-icon"><img src="Facebook (Button).png" alt="Facebook"></a>
-            <a href="#" class="social-icon"><img src="Google (Button).png" alt="Google"></a>
-            <a href="#" class="social-icon"><img src="Apple (Button).png" alt="Apple"></a>
-        </div>
-        <p>Já tem uma conta? <a href="login.html" class="login-link">Faça seu login</a></p>
+
+<!-- Cadastro (Etapa 1) -->
+<header class="container form-container active" id="cadastro">
+  <a href="index.html" class="back-btn"><i class="bi bi-chevron-left"></i></a>
+  <h2>Olá!<br>Vamos começar?</h2>
+  <form id="formCadastro">
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="Telefone" required>
+    <input type="password" placeholder="Senha" required>
+    <input type="password" placeholder="Confirme a senha" required>
+    <button type="submit">Avançar</button>
+  </form>
+  <p>Já tem uma conta? <a href="login.html">Faça seu login</a></p>
+</header>
+
+<!-- Cadastro1 (Comunidade) -->
+<header class="container form-container" id="cadastro1">
+  <a href="index.html" class="back-btn"><i class="bi bi-chevron-left"></i></a>
+  <h2>Vamos terminar seu cadastro</h2>
+
+  <!-- Tabs: Comunidade / Organização -->
+  <div class="tab-container">
+    <button class="option-btn active" onclick="mostrarTela('cadastro1', this)">Comunidade</button>
+    <button class="option-btn" onclick="mostrarTela('cadastro2', this)">Organizações Sociais</button>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Nome" required>
+
+    <div class="cpf-cnpj-row">
+      <label><input type="radio" name="documento" value="cpf" required> CPF</label>
+      <label><input type="radio" name="documento" value="cnpj" required> CNPJ</label>
+      <input type="text" placeholder="CPF ou CNPJ" required>
     </div>
-    <script src="script.js"></script>
+
+    <input type="text" placeholder="CEP" required>
+
+    <div class="address-row">
+      <input type="text" placeholder="Número" required>
+      <input type="text" placeholder="Complemento (opcional)">
+    </div>
+
+    <label class="checkbox-label">
+      <input type="checkbox" checked>
+      Aceito receber notificações do app
+    </label>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</header>
+
+<!-- Cadastro2 (Organizações Sociais / Catador Autônomo) -->
+<header class="container form-container" id="cadastro2">
+  <a href="index.html" class="back-btn"><i class="bi bi-chevron-left"></i></a>
+  <h2>Cadastro para organizações ou autônomos</h2>
+
+  <!-- Tabs: Comunidade / Organização -->
+  <div class="tab-container">
+    <button class="option-btn" onclick="mostrarTela('cadastro1', this)">Comunidade</button>
+    <button class="option-btn active" onclick="mostrarTela('cadastro2', this)">Organizações Sociais</button>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Nome" required>
+
+    <div class="cpf-cnpj-row">
+      <label><input type="radio" name="documento2" value="cpf" required> CPF</label>
+      <label><input type="radio" name="documento2" value="cnpj" required> CNPJ</label>
+      <input type="text" placeholder="CPF ou CNPJ" required>
+    </div>
+
+    <input type="text" placeholder="CEP" required>
+
+    <div class="address-row">
+      <input type="text" placeholder="Número" required>
+      <input type="text" placeholder="Complemento (opcional)">
+    </div>
+
+    <div class="materials-section">
+      <p>Materiais que trabalha:</p>
+      <label><input type="checkbox" value="papel"> Papel</label><br>
+      <label><input type="checkbox" value="plastico"> Plástico</label><br>
+      <label><input type="checkbox" value="metal"> Metal</label><br>
+      <label><input type="checkbox" value="vidro"> Vidro</label><br>
+      <label><input type="checkbox" value="eletronicos"> Eletrônicos</label><br>
+    </div>
+
+    <div class="kilos-section">
+      <p>Quantidade de Kilos que coleta:</p>
+      <label><input type="checkbox" value="5-10"> 5kg a 10kg</label><br>
+      <label><input type="checkbox" value="10-15"> 10kg a 15kg</label><br>
+      <label><input type="checkbox" value="15-20"> 15kg a 20kg</label><br>
+      <label><input type="checkbox" value="20+"> Acima de 20kg</label><br>
+    </div>
+
+    <div class="collection-method-section">
+      <p>Meio de Coleta:</p>
+      <label><input type="checkbox" value="carro"> Carro</label><br>
+      <label><input type="checkbox" value="bicicleta"> Bicicleta</label><br>
+      <label><input type="checkbox" value="caminhao"> Caminhão</label><br>
+      <label><input type="checkbox" value="van"> Van</label><br>
+    </div>
+
+    <div class="radio-group">
+      <p>Tipo de Trabalho:</p>
+      <label><input type="radio" name="tipo-trabalho" value="ong" required> Empresa (ONG)</label><br>
+      <label><input type="radio" name="tipo-trabalho" value="catador"> Autônomo (Catador)</label><br>
+    </div>
+
+    <label class="checkbox-label">
+      <input type="checkbox" checked>
+      Aceito receber notificações do app
+    </label>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</header>
+
+<script>
+  // Lógica para alternar telas
+  const mostrarTela = (id, btn) => {
+    document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    // Alterna visual das abas
+    if (btn && btn.classList.contains('option-btn')) {
+      const tabParent = btn.parentElement;
+      tabParent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  };
+
+  // Avançar do Cadastro → Cadastro1
+  document.getElementById("formCadastro").addEventListener("submit", function(e) {
+    e.preventDefault();
+    mostrarTela("cadastro1");
+  });
+</script>
+
 </body>
 </html>
