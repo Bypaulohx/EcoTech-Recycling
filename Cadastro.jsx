@@ -59,18 +59,27 @@ const Cadastro2 = () => (
     <header className="container form-container">
         <a href="/Index" className="back-btn" id="backBtn"><i class="bi bi-chevron-left"></i></a>
         <h2>Olá!<br />Vamos termina seu cadastro</h2>
+          <div className="tab-container">
+            <button className="option-btn" onclick="window.location.href='cadastro2.html'">Comunidade</button>
+            <button className="option-btn active" onclick="window.location.href='cadastro-coletor.html'">Organizações Sociais</button>
+          </div>
 
-        <form id="cadastroForm3" class="form" action="mapa.html" method="GET" onsubmit="adicionarCepNaUrl(event)">
-            <input type="text" id="telefone" placeholder="Telefone" required />
-            <input type="text" id="cep" placeholder="CEP" required  />
-            <div class="address-row">
-                <input type="text" placeholder="Número" required />
-                <input type="text" placeholder="Complemento" />
-            </div>
-            <input type="text" id="collector-name" placeholder="Nome da ONG ou Catadores" required />
-            <input type="text" id="operation-hours" placeholder="Horários e Dias de Funcionamento" required />
+        <form id="cadastroForm3" className="form" action="mapa.html" method="GET" onsubmit="adicionarCepNaUrl(event)">
+        <input type="text" placeholder="Nome" required />
+          <div className="cnpj-row">
+              <label className="radio-label">
+                  <input type="radio" name="documento" value="cnpj" />
+                  CNPJ
+              </label>
+              <input type="text" id="documento" placeholder="CNPJ" required />
+          </div>
+        <input type="text" id="cep" placeholder="CEP" required />
+        <div className="address-row">
+            <input type="text" placeholder="Número" required />
+            <input type="text" placeholder="Complemento" />
+        </div>
             
-            <div class="materials-section">
+            <div className="materials-section">
                 <label>O que aceita como reciclagem:</label>
                 <label><input type="checkbox" name="materials" value="papel" /> Papel</label>
                 <label><input type="checkbox" name="materials" value="plastico" /> Plástico</label>
@@ -91,26 +100,26 @@ const Cadastro2 = () => (
                 <option value="" disabled selected>Meio de Coleta</option>
                 <option value="carro">Carro</option>
                 <option value="bicicleta">Bicicleta</option>
-                <option value="carroca">Carroça</option>
                 <option value="caminhao">Caminhão</option>
                 <option value="van">Van</option>
             </select>
         
-            <div class="radio-group">
+            <div className="radio-group">
                 <label><input type="radio" name="collector-type" value="ong" required /> ONG</label>
                 <label><input type="radio" name="collector-type" value="catador" /> Catador Autônomo</label>
             </div>
         
-            <label class="checkbox-label">
+            <label className="checkbox-label">
                 Aceito receber notificações do app
                 <input type="checkbox" checked />
-                <span class="custom-checkbox"></span>
+                <span className="custom-checkbox"></span>
             </label>
         
-            <button type="submit" class="cadastrar-btn">Cadastrar</button>
+            <button type="submit" className="cadastrar-btn">Cadastrar</button>
         </form>
 
     </header>
 );
+
 
 export default Cadastro;
