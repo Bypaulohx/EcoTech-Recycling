@@ -3,14 +3,14 @@ import '../App.css';
 
 const Cadastro = () => (
   <header className="container form-container">
-    <a href="/Index" className="back-btn" id="backBtn"><i class="bi bi-chevron-left"></i></a>
+    <a href="/Index" className="back-btn" id="backBtn"><i className="bi bi-chevron-left"></i></a>
     <h2>Olá!<br />Vamos começar?</h2>
     <form id="cadastroForm" className="form">
-        <input type="email" placeholder="Email" required />
-        <input type="tel" id="telefone" placeholder="Telefone" required />
-        <input type="password" id="passwordInput" placeholder="Senha" required />
-        <input type="password" id="confirmPasswordInput" placeholder="Confirme a senha" required />
-        <button type="submit" className="avancar-btn">Avançar</button>
+      <input type="email" placeholder="Email" required />
+      <input type="tel" placeholder="Telefone" required />
+      <input type="password" placeholder="Senha" required />
+      <input type="password" placeholder="Confirme a senha" required />
+      <button type="submit" className="avancar-btn">Avançar</button>
     </form>
     <p>Já tem uma conta? <a href="Login" className="login-link">Faça seu login</a></p>
   </header>
@@ -18,108 +18,106 @@ const Cadastro = () => (
 
 const Cadastro1 = () => (
   <header className="container form-container">
-    <a href="/Index" className="back-btn" id="backBtn"><i class="bi bi-chevron-left"></i></a>
-    <h2>Olá!<br />Vamos termina seu cadastro</h2>
-    <div className="question-container">
-        <span className="question-text" title="Selecione se você faz parte da comunidade que descarta resíduos ou da organização que coleta resíduos.">Quem é você?</span>
-    </div>
-    <div className="tab-container">
-        <button className="option-btn active" onclick="window.location.href='cadastro2.html'">Comunidade</button>
-        <button className="option-btn" onclick="window.location.href='cadastro-coletor.html'">Organizações Sociais</button>
-    </div>
-    <form id="cadastroForm2" className="form">
-        <input type="text" placeholder="Nome" required />
-        <div className="cpf-cnpj-row">
-            <label className="radio-label">
-                <input type="radio" name="documento" value="cpf" />
-                CPF
-            </label>
-            <label className="radio-label">
-                <input type="radio" name="documento" value="cnpj" />
-                CNPJ
-            </label>
-            <input type="text" id="documento" placeholder="CPF ou CNPJ" required />
-        </div>
-        <input type="text" id="cep" placeholder="CEP" required />
-        <div className="address-row">
-            <input type="text" placeholder="Número" required />
-            <input type="text" placeholder="Complemento" />
-        </div>
-        <label className="checkbox-label">
-            Aceito receber notificações do app
-            <input type="checkbox" checked />
-            <span className="custom-checkbox"></span>
+    <a href="/Index" className="back-btn" id="backBtn"><i className="bi bi-chevron-left"></i></a>
+    <h2>Vamos terminar seu cadastro</h2>
+    <form id="cadastroForm1" className="form">
+      <input type="text" placeholder="Nome" required />
+
+      <div className="cpf-cnpj-row">
+        <label className="radio-label">
+          <input type="radio" name="documento" value="cpf" required />
+          CPF
         </label>
-        <button type="submit" className="cadastrar-btn">Cadastrar</button>
+        <label className="radio-label">
+          <input type="radio" name="documento" value="cnpj" required />
+          CNPJ
+        </label>
+        <input type="text" placeholder="CPF ou CNPJ" required />
+      </div>
+
+      <input type="text" placeholder="CEP" required />
+
+      <div className="address-row">
+        <input type="text" placeholder="Número" required />
+        <input type="text" placeholder="Complemento (opcional)" />
+      </div>
+
+      <label className="checkbox-label">
+        Aceito receber notificações do app
+        <input type="checkbox" defaultChecked />
+        <span className="custom-checkbox"></span>
+      </label>
+
+      <button type="submit" className="cadastrar-btn">Cadastrar</button>
     </form>
   </header>
 );
 
 const Cadastro2 = () => (
-    <header className="container form-container">
-        <a href="/Index" className="back-btn" id="backBtn"><i class="bi bi-chevron-left"></i></a>
-        <h2>Olá!<br />Vamos termina seu cadastro</h2>
-          <div className="tab-container">
-            <button className="option-btn" onclick="window.location.href='cadastro2.html'">Comunidade</button>
-            <button className="option-btn active" onclick="window.location.href='cadastro-coletor.html'">Organizações Sociais</button>
-          </div>
+  <header className="container form-container">
+    <a href="/Index" className="back-btn" id="backBtn"><i className="bi bi-chevron-left"></i></a>
+    <h2>Cadastro para organizações e autônomos</h2>
+    <form id="cadastroForm2" className="form">
+      <input type="text" placeholder="Nome" required />
 
-        <form id="cadastroForm3" className="form" action="mapa.html" method="GET" onsubmit="adicionarCepNaUrl(event)">
-        <input type="text" placeholder="Nome" required />
-          <div className="cnpj-row">
-              <label className="radio-label">
-                  <input type="radio" name="documento" value="cnpj" />
-                  CNPJ
-              </label>
-              <input type="text" id="documento" placeholder="CNPJ" required />
-          </div>
-        <input type="text" id="cep" placeholder="CEP" required />
-        <div className="address-row">
-            <input type="text" placeholder="Número" required />
-            <input type="text" placeholder="Complemento" />
-        </div>
-            
-            <div className="materials-section">
-                <label>O que aceita como reciclagem:</label>
-                <label><input type="checkbox" name="materials" value="papel" /> Papel</label>
-                <label><input type="checkbox" name="materials" value="plastico" /> Plástico</label>
-                <label><input type="checkbox" name="materials" value="metal" /> Metal</label>
-                <label><input type="checkbox" name="materials" value="vidro" /> Vidro</label>
-                <label><input type="checkbox" name="materials" value="eletronicos" /> Resíduos Eletrônicos</label>
-            </div>
-        
-            <select id="weight-range" required>
-                <option value="" disabled selected>Quantidade de Kilos</option>
-                <option value="5-10">5kg a 10kg</option>
-                <option value="10-15">10kg a 15kg</option>
-                <option value="15-20">15kg a 20kg</option>
-                <option value="above-20">Acima de 20kg</option>
-            </select>
-        
-            <select id="collection-method" required>
-                <option value="" disabled selected>Meio de Coleta</option>
-                <option value="carro">Carro</option>
-                <option value="bicicleta">Bicicleta</option>
-                <option value="caminhao">Caminhão</option>
-                <option value="van">Van</option>
-            </select>
-        
-            <div className="radio-group">
-                <label><input type="radio" name="collector-type" value="ong" required /> ONG</label>
-                <label><input type="radio" name="collector-type" value="catador" /> Catador Autônomo</label>
-            </div>
-        
-            <label className="checkbox-label">
-                Aceito receber notificações do app
-                <input type="checkbox" checked />
-                <span className="custom-checkbox"></span>
-            </label>
-        
-            <button type="submit" className="cadastrar-btn">Cadastrar</button>
-        </form>
+      <div className="cpf-cnpj-row">
+        <label className="radio-label">
+          <input type="radio" name="documento" value="cpf" required />
+          CPF
+        </label>
+        <label className="radio-label">
+          <input type="radio" name="documento" value="cnpj" required />
+          CNPJ
+        </label>
+        <input type="text" placeholder="CPF ou CNPJ" required />
+      </div>
 
-    </header>
+      <input type="text" placeholder="CEP" required />
+
+      <div className="address-row">
+        <input type="text" placeholder="Número" required />
+        <input type="text" placeholder="Complemento (opcional)" />
+      </div>
+
+      <div className="materials-section">
+        <label>Materiais que trabalha:</label>
+        <label><input type="checkbox" name="materiais" value="papel" /> Papel</label>
+        <label><input type="checkbox" name="materiais" value="plastico" /> Plástico</label>
+        <label><input type="checkbox" name="materiais" value="metal" /> Metal</label>
+        <label><input type="checkbox" name="materiais" value="vidro" /> Vidro</label>
+        <label><input type="checkbox" name="materiais" value="eletronicos" /> Eletrônicos</label>
+      </div>
+
+      <div className="kilos-section">
+        <label>Quantidade de Kilos que coleta:</label>
+        <label><input type="checkbox" value="5-10" /> 5kg a 10kg</label>
+        <label><input type="checkbox" value="10-15" /> 10kg a 15kg</label>
+        <label><input type="checkbox" value="15-20" /> 15kg a 20kg</label>
+        <label><input type="checkbox" value="20+" /> Acima de 20kg</label>
+      </div>
+
+      <div className="collection-method-section">
+        <label>Meio de Coleta:</label>
+        <label><input type="checkbox" value="carro" /> Carro</label>
+        <label><input type="checkbox" value="bicicleta" /> Bicicleta</label>
+        <label><input type="checkbox" value="caminhao" /> Caminhão</label>
+        <label><input type="checkbox" value="van" /> Van</label>
+      </div>
+
+      <div className="radio-group">
+        <label><input type="radio" name="tipo-trabalho" value="ong" required /> Empresa (ONG)</label>
+        <label><input type="radio" name="tipo-trabalho" value="catador" /> Autônomo (Catador)</label>
+      </div>
+
+      <label className="checkbox-label">
+        Aceito receber notificações do app
+        <input type="checkbox" defaultChecked />
+        <span className="custom-checkbox"></span>
+      </label>
+
+      <button type="submit" className="cadastrar-btn">Cadastrar</button>
+    </form>
+  </header>
 );
 
-
-export default Cadastro;
+export { Cadastro, Cadastro1, Cadastro2 };
